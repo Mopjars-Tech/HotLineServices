@@ -5,6 +5,8 @@ namespace HotLineServices.Models
 {
     public class Catch
     {
+        public string? Id { get; set; }
+        [Required]
         public string? User {  get; set; }
         [Required]
         public string Species { get; set; }
