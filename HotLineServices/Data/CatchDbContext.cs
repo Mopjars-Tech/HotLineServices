@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HotLineServices.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotLineServices.Data
 {
@@ -8,5 +9,7 @@ namespace HotLineServices.Data
             : base(options)
         {
         }
+
+        public DbSet<Catch> Catches { get; set; }
     }
 }
