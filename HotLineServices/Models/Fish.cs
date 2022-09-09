@@ -1,11 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 
 namespace HotLineServices.Models
 {
     public class Fish
     {
-        public string? Id { get; set; }
+        [Key]
+        [JsonIgnore]
+        public int? Id { get; set; }
         [Required]
         public string? User {  get; set; }
         [Required]

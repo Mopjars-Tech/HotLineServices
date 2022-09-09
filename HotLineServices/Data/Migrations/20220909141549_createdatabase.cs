@@ -13,7 +13,8 @@ namespace HotLineServices.Data.Migrations
                 name: "Fishes",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     User = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Species = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TempFarenheit = table.Column<float>(type: "real", nullable: false),

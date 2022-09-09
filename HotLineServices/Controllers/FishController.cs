@@ -20,11 +20,11 @@ namespace HotLineServices.Controllers
             return await _context.Fishes.ToListAsync();
         }
 
-        [HttpGet("id")]
+        [HttpGet("Id")]
         [ProducesResponseType(typeof(Fish), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int Id)
         {
-            var fish = await _context.Fishes.FindAsync(id);
+            var fish = await _context.Fishes.FindAsync(Id);
             return fish == null ? NotFound() : Ok(fish);
         }
 
@@ -35,7 +35,7 @@ namespace HotLineServices.Controllers
             await _context.Fishes.AddAsync(fish);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = fish.Id }, fish);
+            return CreatedAtAction(nameof(GetById), new { Id = fish.Id }, fish);
         }
     }
 }
