@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotLineServices.Data
 {
-    public class CatchDbContext : DbContext
+    public class FishDbContext : DbContext
     {
-        public CatchDbContext(DbContextOptions<CatchDbContext> options)
+        public FishDbContext(DbContextOptions<FishDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Catch> Catches { get; set; }
+        public DbSet<Fish> Fishes { get; set; }
     }
 }
