@@ -4,18 +4,16 @@ using HotLineServices.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace HotLineServices.Data.Migrations
 {
-    [DbContext(typeof(CatchDbContext))]
-    [Migration("20220908125426_updatetables")]
-    partial class updatetables
+    [DbContext(typeof(FishDbContext))]
+    partial class FishDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,15 +22,18 @@ namespace HotLineServices.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("HotLineServices.Models.Catch", b =>
+            modelBuilder.Entity("HotLineServices.Models.Fish", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("CatchTime")
-                        .HasColumnType("datetime2");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FishTime")
                         .HasColumnType("datetime2");
 
                     b.Property<float?>("Length")
@@ -58,7 +59,7 @@ namespace HotLineServices.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Catches");
+                    b.ToTable("Fishes");
                 });
 #pragma warning restore 612, 618
         }
